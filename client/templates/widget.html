@@ -1,0 +1,27 @@
+<template name="widget">
+  <script>
+    webix.ready(function(){
+      grida = webix.ui({
+        view:"datatable",
+        columns:[
+          { id:"geo",     header:"geo",                   width:200 },
+          { id:"country", header:"country",               width:120 },
+          { id:"channel", header:"channel" ,              width:80  },
+          { id:"product", header:"product",       width:150  },
+          { id:"sold_to", header:"sold_to",       width:60  }
+        ],
+        select: true,
+        editable: true,
+        autowidth:true,
+        /*
+        rules:{
+          'sold_to':function(value){
+            return value<1100;
+          }
+        },
+        */
+        url: webix.proxy('meteor', Allocations)
+      });
+    });
+  </script>
+</template>
